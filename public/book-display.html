@@ -1,0 +1,99 @@
+ <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+    
+      <h1 class="text-center"><i class="fa fa-book" aria-hidden="true"></i>Book-a-Book</h1>
+    
+      <div class="page-header">
+      </div>
+
+      <!-- render beers here -->
+  
+
+    </div>
+ </div>
+  
+  
+
+  
+<div class="row">
+  <div class="search-bar col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+  <br/>
+      
+    <div class="input-group">
+      <div class="input-group-btn">
+        <div class="searchbox col-lg-5 col-lg-offset-0 col-md-5 col-sm-5 col-xs-10 col-xs-offset-0">
+          <input type="text" class="form-control searchfield" placeholder="Search Beers by Name" ng-model="beerName">
+        </div>
+
+        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-xs-10" style="top: -2px; padding-left:0px">
+          <select class="dropdown-menu dropdown-menu-right form-control" ng-model="beerStyle" >
+              <option value = "{{undefined}}">All Styles</option>
+              <!-- <option ng-repeat="beer in userBeers | orderBy:'style' track by $index">{{beer.style}}</option> -->
+              <option ng-repeat="beerstyle in allBeerStyles">{{beerstyle}}</option>
+          </select>
+        </div>
+
+        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-1 col-xs-10" style="top: -2px; padding-left:0px">
+          <select class="dropdown-menu dropdown-menu-right form-control" ng-model="sortList">
+                <option value = "" selected>Sort by Name</option>
+                <option value = "-abv">Sort by ABV</option>
+                <option value = "-rating">Sort by Rating</option>
+          </select>
+
+        </div>
+      </div><!-- /btn-group -->
+    </div><!-- /input-group -->
+  </div> <!-- /search-bar -->
+</div><!-- /.row -->
+
+<div class="container">
+  <div class="row">
+    <div class="beer-display">    
+      <br/>
+      <br/>
+      <div class="beerContainer col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3" ng-repeat = "beer in userBeers | filter: {name:beerName} | filter: {style: beerStyle} | orderBy: sortList || 'name' track by $index">
+        <div class="beer-inner">
+
+            <img class="beer-image cover" ng-src="{{beer.image_url}}">
+            <h4 class="beer-name">{{beer.name}} </h4> 
+            <hr>
+            <span class="beer-style"><i class="fa fa-paint-brush" aria-hidden="true"></i> {{beer.style}} 
+            <i class="fa fa-flask" aria-hidden="true"></i> ABV:{{beer.abv}}</span>
+            <br>
+            <div class="actions clearfix">
+              <h4 class="pull-left"><div  ng-bind-html="trust(fastar(beer))"></div></h4>
+              <h4 class="pull-right">
+                <span><i class="fa fa-trash-o" aria-hidden="true" ng-click="removeBeer(beer)"></i></span>
+                <span style="position:relative; top:1px;"><i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="editBeer(beer)"></i></span>
+              </h4>
+            </div> <!-- /actions -->
+
+            <form ng-submit="addReview(beer)">
+              <div class="form-group user-rating-container pull-left">
+                <div class="review">
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Your Review" ng-model="beer.userReview"></input>
+                  </div>
+                </div>
+                <input type="number" class="form-control user-rating pull-left" placeholder="Your Rating" required min="1" max="5" ng-model="beer.userRating"></input>
+                <button type="submit" class="btn btn-secondary col-md-2 user-rating-btn">Go!</button>
+              </div> <!-- /user-rating-container -->
+            </form>
+            
+            <!-- <div class="beer-reviews" ng-repeat="userReview in beer.reviews">
+                {{beer.reviews}}  -->
+            <div class="beer-reviews" ng-repeat="review in beer.reviews track by $index">
+                {{review.userReview}}  
+                <span><i class="fa fa-trash-o" aria-hidden="true" ng-click="removeReview(beer, review)"></i></span>
+            </div>
+
+          </div><!-- /beer-inner -->
+        </div><!--  /beer-container -->
+      </div> <!-- /beer-display -->
+    </div>
+  </div>
+
+    </div><!-- /row -->
+  </div><!-- /container-fluid -->
+
+
