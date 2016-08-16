@@ -1,5 +1,6 @@
 <!--Searching for a new book to add, controller: MainCtrl through ui-router -->
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,9 @@
 <body>
 
 <div ng-controller = "MainCtrl" ng-app="book">
+=======
+<div ng-controller = "MainCtrl" ng-app>
+>>>>>>> master
   <h1>Wanna get rid of a book? Add it here!</h1>
     <form ng-submit="searchBook()">
      <input type="text" id="book-search" class="form-control" placeholder="Search for title or ISBN number" ng-model="book-search">
@@ -23,6 +27,7 @@
 
 <!--add animation while it's searching through an API-->
 
+<<<<<<< HEAD
 <div ng-repeat="book in searchedBooks"></div>
 
 <script src= "js/controllers/mainController.js"></script>
@@ -33,3 +38,7 @@
 </html>
 
 
+=======
+<div ng-repeat="book in searchedBooks">
+  
+>>>>>>> master

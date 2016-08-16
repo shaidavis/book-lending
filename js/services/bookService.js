@@ -5,6 +5,7 @@ app.factory('bookService', ['$http', function ($http) {
 
   var searchedBooks = [];
 
+
   function search(name){
 
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
@@ -29,4 +30,5 @@ app.factory('bookService', ['$http', function ($http) {
   }
 
   return {searchedBooks:searchedBooks, search:search}
+
 }])
