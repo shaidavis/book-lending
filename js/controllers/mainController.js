@@ -1,12 +1,17 @@
 app.controller('MainCtrl', function($scope, bookService){
 
-
   $scope.allBooks = bookService.allBooks; //ADD A GETALL FUNCTION HERE FOR THE MONGO//
-
-  $scope.searchedBooks = bookService.searchedBooks;
+  
+  // console.log($scope.searchedBooks)
 
   $scope.searchBook = function(){
-    bookService.search($scope.bookSearch);
+    bookService.search($scope.bookSearch).then(function(){
+   $scope.books = bookService.searchedBooks.books;
+    });
+
     $scope.bookSearch="";
   }
+
+
+
   });
