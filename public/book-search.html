@@ -1,6 +1,19 @@
 <!--Searching for a new book to add, controller: MainCtrl through ui-router -->
 
-<div ng-controller = "MainCtrl" ng-app>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
+  <script src="node_modules/angular/angular.min.js"></script>
+</head>
+
+
+<body>
+
+<div ng-controller = "MainCtrl" ng-app="book">
   <h1>Wanna get rid of a book? Add it here!</h1>
     <form ng-submit="searchBook()">
      <input type="text" id="book-search" class="form-control" placeholder="Search for title or ISBN number" ng-model="book-search">
@@ -10,5 +23,13 @@
 
 <!--add animation while it's searching through an API-->
 
-<div ng-repeat="book in searchedBooks">
-  
+<div ng-repeat="book in searchedBooks"></div>
+
+<script src= "js/controllers/mainController.js"></script>
+<script src="js/services/beers.js"></script>
+<script src="js/controllers/mainController.js"></script>
+
+</body>
+</html>
+
+
