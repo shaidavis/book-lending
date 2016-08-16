@@ -7,11 +7,14 @@
 
 
   <div class = "show-search-books" ng-repeat = "book in books track by $index">
-    <h2>{{book.title}}</h2>
-    <img ng-src="{{book.image}}"/>
-    <h3>{{book.author}}</h3>
-    <p>{{book.description}}</p>
-    <p>{{book.pageNo}}</p>
-    <p>{{book.language}}</p>
+    <div ng-model="book.offer"> 
+      <h2>{{book.title}}</h2>
+      <img ng-src="{{book.image}}"/>
+      <h3>{{book.author}}</h3>
+      <p>{{book.description}}</p>
+      <p>{{book.pageNo}}</p>
+      <p>{{book.language}}</p>
+    </div>
+    <button class="btn-secondary btn" ng-click="offerBook(book.title, book.image, book.author, book.description, book.pageNo, book.language, $index)">Offer this Book</button>
   </div>
 </div>

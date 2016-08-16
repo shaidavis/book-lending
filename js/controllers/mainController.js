@@ -16,5 +16,9 @@ app.controller('mainCtrl', function($scope, bookService){
   }
 
 
+  $scope.offerBook = function(title,image, author, description, pageNo,language ,index){
+    console.log(title,image, author, description, pageNo,language ,index);
+  }
+
 
   });

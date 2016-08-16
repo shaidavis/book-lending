@@ -7,6 +7,7 @@ app.factory('bookService', ['$http', function ($http) {
     books: []
     };
 
+  var offeredBooks = {[]};
 
   function search(name){
     searchedBooks.books = [];
@@ -20,7 +21,7 @@ app.factory('bookService', ['$http', function ($http) {
       var book = {
         title:data.items[i].volumeInfo.title,
         image: data.items[i].volumeInfo.imageLinks.thumbnail,
-        author: data.items[i].volumeInfo.authors[0],
+        author: data.items[i].volumeInfo.authors,
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
         language: data.items[i].volumeInfo.language,
@@ -29,6 +30,22 @@ app.factory('bookService', ['$http', function ($http) {
       }
      // console.log(searchedBooks)
     });
+  }
+
+  function offerBook(title,image, author, description, pageNo,language ,index){
+    var book = {
+      title:title,
+      image:image,
+      author:author,
+      description:description,
+      pageNo: parseInt(pageNo),
+      language: language
+
+    }
+
+    $http.post('/offerbook', book);
+
+    // offeredBooks.getAll();    
   }
 
   return {searchedBooks:searchedBooks, search:search}
