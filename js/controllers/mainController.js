@@ -1,4 +1,4 @@
-app.controller('MainCtrl', function($scope, bookService){
+app.controller('mainCtrl', function($scope, bookService){
 
   $scope.allBooks = bookService.allBooks; //ADD A GETALL FUNCTION HERE FOR THE MONGO//
   
