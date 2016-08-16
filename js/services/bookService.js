@@ -3,16 +3,18 @@ app.factory('bookService', ['$http', function ($http) {
   //CONNECT THROUGH $HTTP TO THE API TO IMPLEMENT THE SEARCH FUNCTION FOR THE FORM//
   //THE POPULATE THE SEARCHEDBOOOKS ARRAY THAT WILL BE DISPLAYED FOR THE USER TO ADD HIS BOOKS//
 
-  var searchedBooks = [];
+  var searchedBooks = {
+    books: []
+    };
 
 
   function search(name){
-
+    searchedBooks.books = [];
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
     // console.log("data from server is:",data)
 
     // console.log(data);
-
+    
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
      for (var i=0; i < data.items.length ; i++){
       var book = {
@@ -23,7 +25,7 @@ app.factory('bookService', ['$http', function ($http) {
         description: data.items[i].volumeInfo.description,
         language: data.items[i].volumeInfo.language,
        }
-       searchedBooks.push(book);
+       searchedBooks.books.push(book);
       }
      // console.log(searchedBooks)
     });

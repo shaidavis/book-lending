@@ -1,4 +1,4 @@
-<div ng-controller = "MainCtrl" >
+<div >
   <h1>Wanna get rid of a book? Add it here!</h1>
     <form ng-submit="searchBook()">
      <input type="text" id="book-search" class="form-control" placeholder="Search for title or ISBN number" ng-model="bookSearch">
@@ -6,7 +6,7 @@
     </form>
 
 
-  <div class = "show-search-books" ng-repeat = "book in books">
+  <div class = "show-search-books" ng-repeat = "book in books track by $index">
     <h2>{{book.title}}</h2>
     <img ng-src="{{book.image}}"/>
     <h3>{{book.author}}</h3>
