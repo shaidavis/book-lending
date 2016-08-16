@@ -8,7 +8,8 @@ app.factory('bookService', ['$http', function ($http) {
     };
 
   var offeredBooks = {
-    books : []};
+    books : []
+  };
 
   function search(name){
     searchedBooks.books = [];
@@ -49,8 +50,8 @@ app.factory('bookService', ['$http', function ($http) {
     // offeredBooks.getAll();    
   }
 
-  offeredBooks.getAll = function () {
-    return $http.get('/offerbook').success(function (data) {
+  function getAll() {
+    return $http.get('/books').success(function (data) {
        console.log("data from server is:",data);
       // var id = ObjectId();
       // console.log(id)
@@ -61,6 +62,6 @@ app.factory('bookService', ['$http', function ($http) {
     console.log(offeredBooks.books);
   };
 
-  return {searchedBooks:searchedBooks, search:search, offer:offer}
+  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll}
 
 }])
