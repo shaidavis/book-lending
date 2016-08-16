@@ -1,0 +1,14 @@
+<!--Searching for a new book to add, controller: MainCtrl through ui-router -->
+
+<div ng-controller = "MainCtrl" ng-app>
+  <h1>Wanna get rid of a book? Add it here!</h1>
+    <form ng-submit="searchBook()">
+     <input type="text" id="book-search" class="form-control" placeholder="Search for title or ISBN number" ng-model="book-search">
+     <button class="btn-primary">Search!</button>
+    </form>
+</div>
+
+<!--add animation while it's searching through an API-->
+
+<div ng-repeat="book in searchedBooks">
+  

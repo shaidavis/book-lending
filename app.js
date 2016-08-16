@@ -4,7 +4,9 @@ var bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/books');
 
-// var Book = require("./models/BookModel");
+
+var Book = require("./models/BookModel");
+
 
 var app = express();
 console.log("STATUS: you're running app.js. don't forget to restart the server if you make changes")
@@ -24,3 +26,4 @@ app.get('/', function(req, res){
 
 
 app.listen(8000);
+
