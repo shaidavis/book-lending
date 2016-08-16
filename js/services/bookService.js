@@ -7,7 +7,8 @@ app.factory('bookService', ['$http', function ($http) {
     books: []
     };
 
-  var offeredBooks = {[]};
+  var offeredBooks = {
+    offered : []};
 
   function search(name){
     searchedBooks.books = [];
@@ -32,7 +33,7 @@ app.factory('bookService', ['$http', function ($http) {
     });
   }
 
-  function offerBook(title,image, author, description, pageNo,language ,index){
+  function offer(title,image, author, description, pageNo,language ,index){
     var book = {
       title:title,
       image:image,
@@ -42,12 +43,12 @@ app.factory('bookService', ['$http', function ($http) {
       language: language
 
     }
-
+   
     $http.post('/offerbook', book);
 
     // offeredBooks.getAll();    
   }
 
-  return {searchedBooks:searchedBooks, search:search}
+  return {searchedBooks:searchedBooks, search:search, offer:offer}
 
 }])
