@@ -14,7 +14,17 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
+    "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
     "mongoose": "^4.5.9"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaidavis/book-lending.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shaidavis/book-lending/issues"
+  },
+  "homepage": "https://github.com/shaidavis/book-lending#readme"
 }
