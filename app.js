@@ -23,6 +23,12 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + "/index.html");
 })
 
+app.get('/books', function (req, res) {
+  Book.find(function (error, books) {
+    res.send(books);
+  });
+});
+
 
 app.post('/offerbook', function (req, res, next) {
   var book = new Book(req.body);
