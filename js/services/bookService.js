@@ -8,7 +8,7 @@ app.factory('bookService', ['$http', function ($http) {
     };
 
   var offeredBooks = {
-    offered : []};
+    books : []};
 
   function search(name){
     searchedBooks.books = [];
@@ -48,6 +48,18 @@ app.factory('bookService', ['$http', function ($http) {
 
     // offeredBooks.getAll();    
   }
+
+  offeredBooks.getAll = function () {
+    return $http.get('/offerbook').success(function (data) {
+       console.log("data from server is:",data);
+      // var id = ObjectId();
+      // console.log(id)
+    // this copies the response posts to the client side
+    // 'beers' under 'beerService'
+    angular.copy(data, offeredBooks.books);        //this tells the data to be copied into our object
+  });
+    console.log(offeredBooks.books);
+  };
 
   return {searchedBooks:searchedBooks, search:search, offer:offer}
 

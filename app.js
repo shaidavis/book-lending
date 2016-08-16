@@ -23,9 +23,9 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + "/index.html");
 })
 
-app.get('/books', function (req, res) {
-  Beer.find(function (error, beers) {
-    res.send(beers);
+app.get('/offerbook', function (req, res) {
+  Book.find(function (error, books) {
+    res.send(books);
   });
 });
 
