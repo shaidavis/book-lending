@@ -15,6 +15,7 @@ app.use(bodyParser.json());   // This is the type of body we're interested in
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static('public'));
+app.use(express.static('js'));
 app.use(express.static('node_modules'));
 app.use(express.static('templates'));
 
