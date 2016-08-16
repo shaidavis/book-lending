@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Arvo|Delius+Unicase|Dosis|Rock+Salt" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Unica+One" rel="stylesheet">
 </head>
-<body>
+<body ng-app="book" ng-controller="mainCtrl">
 
 
   <nav class="navbar navbar-inverse" role="navigation">
@@ -20,7 +20,7 @@
       <a class="navbar-brand" ui-sref="#">Book-a-Book</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a ui-sref="home">Offer a Book</a></li>
+      <li><a ui-sref="add">Offer a Book</a></li>
       <li><a ui-sref="borrow">Borrow a Book</a></li>
       <li><a ui-sref="about">About</a></li>
     </ul>
@@ -44,7 +44,6 @@
  <div ui-view></div>
 
 
-<script src="angular/angular.min.js"></script>
 <script src="app.js"></script>
 <script src= "controllers/mainController.js"></script>
 <script src="services/bookService.js"></script>

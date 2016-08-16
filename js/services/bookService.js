@@ -4,7 +4,8 @@ app.factory('bookService', ['$http', function ($http) {
   //THE POPULATE THE SEARCHEDBOOOKS ARRAY THAT WILL BE DISPLAYED FOR THE USER TO ADD HIS BOOKS//
 
   var searchedBooks = {
-    books:[]};
+    books:[]
+  };
 
 
   function search(name){

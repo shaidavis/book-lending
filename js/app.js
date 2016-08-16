@@ -2,7 +2,7 @@ var app = angular.module("book", ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('home', {
+  .state('add', {
     url: '/add',
     templateUrl: 'offer-book.html',
     controller: 'mainCtrl'

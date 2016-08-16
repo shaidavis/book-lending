@@ -11,4 +11,4 @@ var bookSchema = new Schema({
 });
 
 var Book = mongoose.model("Book", bookSchema);
-module.exports = Beer;
+module.exports = Book;
