@@ -3,7 +3,8 @@ app.factory('bookService', ['$http', function ($http) {
   //CONNECT THROUGH $HTTP TO THE API TO IMPLEMENT THE SEARCH FUNCTION FOR THE FORM//
   //THE POPULATE THE SEARCHEDBOOOKS ARRAY THAT WILL BE DISPLAYED FOR THE USER TO ADD HIS BOOKS//
 
-  var searchedBooks = [];
+  var searchedBooks = {
+    books:[]};
 
 
   function search(name){
@@ -23,7 +24,7 @@ app.factory('bookService', ['$http', function ($http) {
         description: data.items[i].volumeInfo.description,
         language: data.items[i].volumeInfo.language,
        }
-       searchedBooks.push(book);
+       searchedBooks.books.push(book);
       }
      // console.log(searchedBooks)
     });
