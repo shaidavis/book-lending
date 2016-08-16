@@ -4,17 +4,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'offer-book.html'
+    templateUrl: 'offer-book.html',
+    controller: 'mainCtrl'
   })
   .state('borrow', {
     url: '/borrow',
-    templateUrl: 'about.html'
+    templateUrl: 'book-display.html',
+    controller: 'mainCtrl'
   })
-  .state('home.list', {
-    url: '/list',
-    templateUrl: 'partial-home-list.html',
-    controller: function($scope) {
-      $scope.scotches = ['balvenie', 'The Balmore', 'Highland Park'];
+  .state('about', {
+    url: '/about',
+    templateUrl: 'about.html'    
     }
   })
   .state('home.paragraph', {
