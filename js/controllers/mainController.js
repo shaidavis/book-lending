@@ -5,10 +5,13 @@ app.controller('mainCtrl', function($scope, bookService){
   // console.log($scope.searchedBooks)
 
   $scope.searchBook = function(){
-    bookService.search($scope.bookSearch).then(function(){
-   $scope.books = bookService.searchedBooks.books;
-    });
+    bookService.searchedBooks.books = [];
+    bookService.search($scope.bookSearch)
+    // .then(function(){
+    $scope.books = bookService.searchedBooks.books;
+    // });
 
+    console.log(bookService.searchedBooks.books)
     $scope.bookSearch="";
   }
 

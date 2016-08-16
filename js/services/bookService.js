@@ -14,7 +14,7 @@ app.factory('bookService', ['$http', function ($http) {
     // console.log("data from server is:",data)
 
     // console.log(data);
-
+    
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
      for (var i=0; i < data.items.length ; i++){
       var book = {
