@@ -17,7 +17,7 @@ app.factory('bookService', ['$http', function ($http) {
       var book = {
         title:data.items[i].volumeInfo.title,
         image: data.items[i].volumeInfo.imageLinks.thumbnail,
-        author: data.items[i].volumeInfo.authors,
+        author: data.items[i].volumeInfo.authors[0].toString(),
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
         language: data.items[i].volumeInfo.language
@@ -25,7 +25,7 @@ app.factory('bookService', ['$http', function ($http) {
        }
        searchedBooks.books.push(book);
       }
-      
+
     });
   }
 
