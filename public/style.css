@@ -1,4 +1,10 @@
+html {
+  height: 100%;
+}
+
+
 body {
+background-position: center top;
 background-color: hsl(34, 53%, 82%);
 background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,                  
   hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
@@ -15,7 +21,8 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
   hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px       
 );
 
-height:800px;
+
+ min-height: 100%;
 }
 
 .notavailable{
@@ -300,37 +307,6 @@ margin-bottom: 6px;
 }
 
 
-
-  .faqHeader {
-        font-size: 27px;
-        margin: 20px;
-    }
-
-    .panel-heading [data-toggle="collapse"]:after {
-        font-family: 'Glyphicons Halflings';
-        content: "e072"; /* "play" icon */
-        float: right;
-        color: #F58723;
-        font-size: 18px;
-        line-height: 22px;
-        /* rotate "play" icon from > (right arrow) to down arrow */
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-    }
-
-    .panel-heading [data-toggle="collapse"].collapsed:after {
-        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        color: #454444;
-    }
-
 .ngdialog-overlay {
   background: rgba(0,0,0,.8);
 }
@@ -344,4 +320,21 @@ margin-bottom: 6px;
   font-size: 17px;
   text-align: center;
   /* font-weight: bold; */
+}
+
+.panel {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.38), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: #424f4f;
+    font-family: "Josefin Sans";
+}
+
+.panel-body {
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
 }
