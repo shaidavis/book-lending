@@ -1,5 +1,4 @@
 body {
-  /*background-color: #EEE;*/
 background-color: hsl(34, 53%, 82%);
 background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,                  
   hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
@@ -21,11 +20,17 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
   color: white;
   font-family: 'Unica One', cursive;
   font-size: 20px;
+  background-color: rgba(1,1,1,.8)
 }
 
 .search-bar {
   
   color:#22313F;
+}
+
+.search-button {
+  margin-top:10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.38), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .searchbox {
@@ -46,6 +51,17 @@ hr {
   border-top:1px dashed #22313F
 
 }
+
+.upload-instructions {
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #a67970;
+    background-color: #f0c487;
+    font-size: 18px;
+}
+
 .btn-primary {
   /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
   font-family: 'Unica One', cursive;
@@ -77,6 +93,7 @@ h1 {
   color: #687494;
   background-color: #ead5b9;
   opacity: .9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.38), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .header-icon {
@@ -87,9 +104,12 @@ h1 {
 
  h2 {
   font-size: 30px;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Josefin Sans', serif;
   background-color: #f0c487;
   text-align: center;
+  padding: 5px;
+  opacity: .9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.38), 0 6px 20px 0 rgba(0,0,0,0.19);
 
  }
 
@@ -98,11 +118,18 @@ h3 {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color:white;
+  color:#424f4f;
+  opacity: .9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.38), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .bookContainer {
   margin-top:25px;
 }
+
+.bookContainerWide {
+  margin: 15px 0;
+}
+
 .book-inner{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   padding: 10px;
@@ -119,13 +146,13 @@ h3 {
 }
 
 .book-inner-wide{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.58), 0 6px 20px 0 rgba(0,0,0,0.19);
   padding: 10px;
   background-color: white;
   /*margin: 9px;*/
   /*width: 31%;*/
   color: #34495e;
-  height: 350px;
+  height: 390px;
   box-sizing: border-box;
   padding: 10px;
   border: 7px #687494 solid;
@@ -159,6 +186,7 @@ margin-bottom: 6px;
 
 
 .top-content {
+  height:50px;
   text-align:center;
 }
 
@@ -199,6 +227,10 @@ margin-bottom: 6px;
   line-height: 1.4em;
 }
 
+.book-description p {
+  height: 200px;
+  overflow: auto;
+}
 .sortdrop {
  font-family: 'Dosis', sans-serif; 
  color:#22313F;
@@ -235,3 +267,55 @@ margin-bottom: 6px;
   box-shadow: none;
   color:white;
 }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+@media (max-width: 600px) {
+  .top-content {
+    height: 40px;
+  }
+
+  .book-info {
+    width: 110%;
+  }
+}
+
+
+
+  .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: "e072"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
