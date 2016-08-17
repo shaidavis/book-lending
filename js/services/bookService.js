@@ -25,6 +25,7 @@ app.factory('bookService', ['$http', function ($http) {
        }
        searchedBooks.books.push(book);
       }
+      
     });
   }
 
