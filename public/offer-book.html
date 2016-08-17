@@ -1,16 +1,21 @@
 <div class="" style="height:800px">
   <div class="row">
-     <div class="search-bar col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-      <h2>Wanna get rid of a book? Add it here!</h2> 
-        <br/>
+     <div class="search-bar col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+      <h2>Too many books on your shelves? <br> Lend some out!</h2> 
+      <h3 class="upload-instructions">Upload a book by searching for its name or ISBN</h3>
+        
       <h1></h1>
         <form ng-submit="searchBook()">
          <input type="text" id="book-search" class="form-control" placeholder="Search by title or ISBN number" ng-model="bookSearch">
-         <button class="btn-primary">Search!</button>
+          <div class="search-button-container col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+            <button class="btn-primary search-button">Search!</button>
+          </div>
         </form>
 
+    </div>
+  </div>
 
-
+<!-- 
   <div class = "show-search-books" ng-repeat = "book in books track by $index">
     <div ng-model="book.offer"> 
       <h2>{{book.title}}</h2>
@@ -23,4 +28,70 @@
     <button class="btn-secondary btn" ng-click="offerBook(book.title, book.image, book.author, book.description, book.pageNo, book.language, $index)">Offer this Book</button>
 
   </div>
+</div>
+ -->
+
+<div class="row row-centered">
+<div class="book-display">  
+<div class = "show-search-books" ng-repeat = "book in books track by $index">
+  <div ng-model="book.offer"> 
+
+
+   <div class="bookContainerWide col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6">
+    <div class="book-inner-wide">
+
+        <div class = "top-content">
+        <span class="book-name">{{book.title}}</span><span class = "book-author">  {{book.author}}</span> 
+        </div>
+        <div class="book-details">
+          <div class="left-content pull-left">
+          <img class="book-image-wide cover col-centered" img ng-src="{{book.image}}"/>
+          </div>
+          <div class="right-content pull-left">
+            <div class="book-info">
+              <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> Young Adult</span>
+              <!-- <span class="book-category"><i class="fa fa-language" aria-hidden="true"></i> English </span> -->
+              <span class="book-category"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{book.pageNo}} Pages </span>
+
+  <!--                 <h4 class=""></h4>
+              <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+              </h4> -->
+
+              <br>
+            </div>
+            <div class="book-description">
+              <p class="">
+                {{book.description}}
+              </p>
+            </div>
+            <div class="actions clearfix">
+            </div> <!-- /actions -->
+  <!--             
+            <form ng-submit="addReview(book)">
+              <div class="form-group user-rating-container pull-left">
+                <div class="review">
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Your Name"></input>
+                  </div>
+                </div>
+                <input type="text" class="form-control user-rating pull-left" placeholder="Your Email"></input>
+                <button type="submit" class="btn btn-secondary col-md-2 user-rating-btn">Go!</button>
+              </div> /user-rating-container
+            </form>
+  -->
+         
+            
+          </div>
+        </div>  
+
+           <button class="btn-primary btn" ng-click="offerBook(book.title, book.image, book.author, book.description, book.pageNo, book.language, $index)">
+              Offer this Book
+            </button>
+
+      </div><!-- /book-inner -->
+    </div> <!-- </book-container> -->
+
+  </div>
+</div>
+</div>
 </div>
