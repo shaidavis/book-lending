@@ -1,8 +1,12 @@
 app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
 
+  //FOR THE NG-SHOW IN SUBMITTING A NEW BOOK AND BOOKING ONE//
+  $scope.submitted=false;
+  $scope.booked = false;
+
+
   //THE GETALL FUNCTION UPDATES THE BOOKS THAT WERE OFFERED BY OTHER USERS AND CAN BE BORROWED. RUNS ON LOAD.//
   // $scope.bookingIndex = undefined;
-  $scope.submitted=false;
   bookService.getAll().then(function () {
   $scope.offeredBooks = bookService.offeredBooks.books;
     // console.log($scope.offeredBooks);
@@ -34,24 +38,25 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
      ngDialog.open({ template: 'offerBookSuccess.html', className: 'ngdialog-theme-default'});
   }
 
+  //OFFERING A NEW BOOK - CALL THE BOOKSERVICE WITH THE SEARCHED BOOK'S PROPERTIES AND LENDER'S EMAIL//
   $scope.offerIt = function(){
-  // $rootScope.lenderEmail = $scope.lenderEmail;
   $scope.submitted=true;
   bookService.offer($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.ageNo,$rootScope.anguage ,$rootScope.index, $scope.lenderEmail);
   }
   
 
-
+  //OPENS THE POPUP WINDOW WHEN CLICK BORROW A BOOK//
   $scope.clickToOpenBorrow = function ($index) {
     $rootScope.bookingIndex = $scope.allBooks[$index]._id;
     $rootScope.bookingLenderEmail = $scope.allBooks[$index].lenderEmail;
-    console.log($scope.allBooks[$index].lenderEmail);
     ngDialog.open({ template: 'borrowBook.html', className: 'ngdialog-theme-default'});
   }
     
 
   $scope.bookIt = function(){
+    $scope.booked = true;
     bookService.booking($rootScope.bookingIndex);
+    
     }
 
 

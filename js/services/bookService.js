@@ -57,7 +57,6 @@ app.factory('bookService', ['$http', function ($http) {
 
   //UPON HITTING SUBMIT IN THE BORROW BOOK POPUP MAKE THE AVAILABILITY FALSE//s
   function booking(bookThis){
-    console.log(offeredBooks)
     $http.post('/booking',{id: bookThis}).success(function(data, status, headers, config) {
       getAll();
     });
@@ -68,6 +67,11 @@ app.factory('bookService', ['$http', function ($http) {
 
   
 
-  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll, booking:booking}
+  return {searchedBooks:searchedBooks, 
+          search:search, 
+          offer:offer, 
+          offeredBooks:offeredBooks, 
+          getAll:getAll, 
+          booking:booking}
 
 }])
