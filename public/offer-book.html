@@ -1,17 +1,23 @@
-<div >
-  <h1>Wanna get rid of a book? Add it here!</h1>
-    <form ng-submit="searchBook()">
-     <input type="text" id="book-search" class="form-control" placeholder="Search for title or ISBN number" ng-model="bookSearch">
-     <button class="btn-primary">Search!</button>
-    </form>
+<div class="" style="height:800px">
+  <div class="row">
+     <div class="search-bar col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+      <h2>Wanna get rid of a book? Add it here!</h2> 
+        <br/>
+      <h1></h1>
+        <form ng-submit="searchBook()">
+         <input type="text" id="book-search" class="form-control" placeholder="Search by title or ISBN number" ng-model="bookSearch">
+         <button class="btn-primary">Search!</button>
+        </form>
 
 
-  <div class = "show-search-books" ng-repeat = "book in books track by $index">
-    <h2>{{book.title}}</h2>
-    <img ng-src="{{book.image}}"/>
-    <h3>{{book.author}}</h3>
-    <p>{{book.description}}</p>
-    <p>{{book.pageNo}}</p>
-    <p>{{book.language}}</p>
+      <div class = "show-search-books" ng-repeat = "book in books track by $index">
+        <h2>{{book.title}}</h2>
+        <img ng-src="{{book.image}}"/>
+        <h3>{{book.author}}</h3>
+        <p>{{book.description}}</p>
+        <p>{{book.pageNo}}</p>
+        <p>{{book.language}}</p>
+      </div>
+    </div>
   </div>
 </div>

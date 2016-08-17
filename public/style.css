@@ -17,10 +17,14 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
 );
 }
 
+.navbar-inverse {
+  color: white;
+  font-family: 'Unica One', cursive;
+  font-size: 20px;
+}
 
 .search-bar {
-  left: 40px;
-  top: 10px;
+  
   color:#22313F;
 }
 
@@ -28,6 +32,10 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
   padding: 0px 15px 0 0;
   margin-bottom: 3px;
   
+}
+input {
+ font-family: 'Dosis', sans-serif; 
+ font-size: 22px;
 }
 
 .form-group {
@@ -75,6 +83,15 @@ h1 {
   font-size: 30px;
    vertical-align: middle;
 }
+
+
+ h2 {
+  font-size: 30px;
+  font-family: 'Dosis', sans-serif;
+  background-color: #f0c487;
+  text-align: center;
+
+ }
 
 h3 {
   font-family: 'Dosis', sans-serif;
