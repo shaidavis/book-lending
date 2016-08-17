@@ -7,7 +7,8 @@ var bookSchema = new Schema({
   author: [String],
   pageNo: { type: Number },
   description: { type: String },
-  language: {type: String}
+  language: {type: String},
+  available: {type: Boolean}
 });
 
 var Book = mongoose.model("Book", bookSchema);

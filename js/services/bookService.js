@@ -20,7 +20,8 @@ app.factory('bookService', ['$http', function ($http) {
         author: data.items[i].volumeInfo.authors,
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
-        language: data.items[i].volumeInfo.language,
+        language: data.items[i].volumeInfo.language
+
        }
        searchedBooks.books.push(book);
       }
@@ -36,8 +37,8 @@ app.factory('bookService', ['$http', function ($http) {
       author:author,
       description:description,
       pageNo: parseInt(pageNo),
-      language: language
-
+      language: language,
+      available: true
     }
    
     $http.post('/offerbook', book);
@@ -57,6 +58,16 @@ app.factory('bookService', ['$http', function ($http) {
     console.log(offeredBooks.books);
   };
 
-  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll}
+  function booking(bookThis){
+    //   $http.post('/bookit', {id: bookThis}).success(function(data, status, headers, config) {
+    //   getAll();
+    // });
+    console.log(bookThis);
+    }
+   
+    // $http.post('/offerbook', book);
+  
+
+  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll, booking:booking}
 
 }])

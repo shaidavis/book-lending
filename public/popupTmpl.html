@@ -3,14 +3,16 @@
 <head>
   <title></title>
 </head>
-<body>
-  <div class = "booking">
+<body ng-app="book"> 
+  <div class = "booking" ng-controller = "mainCtrl">
     <h3>To borrow this book, please submit your email, which will be sent to the user offering the book</h3>
     <p>You may also include a short message if you want</p>
     <p>Please notice that failing to return the book on time will result in a whatever</p>
-    <form>
-      <input type="text" ng-model = "email">
+    <form ng-submit = "bookIt()">
+      <div>Your Email: <input type="text" ng-model = "email"></div>
+      <div>Message (optional):<input type="text" ng-model = "message"></div>
+      <button>Submit</button>
     </form>
-    <button >Submit</button>
+  </div> 
 </body>
 </html>
