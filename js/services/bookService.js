@@ -11,8 +11,8 @@ app.factory('bookService', ['$http', function ($http) {
   function search(name){
     searchedBooks.books = [];   //empty the search array before rendering the new search
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
-
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
+     // console.log(data)
      for (var i=0; i < data.items.length ; i++){
       var book = {
         title:data.items[i].volumeInfo.title,
@@ -25,7 +25,6 @@ app.factory('bookService', ['$http', function ($http) {
        }
        searchedBooks.books.push(book);
       }
-     // console.log(searchedBooks)
     });
   }
 
@@ -43,19 +42,18 @@ app.factory('bookService', ['$http', function ($http) {
    
     $http.post('/offerbook', book);
 
-    // offeredBooks.getAll();    
+    getAll();    
   }
 
   function getAll() {
     return $http.get('/books').success(function (data) {
-       // console.log("data from server is:",data);
+       console.log("data from server is:",data);
       // var id = ObjectId();
       // console.log(id)
     // this copies the response posts to the client side
     // 'beers' under 'beerService'
     angular.copy(data, offeredBooks.books);        //this tells the data to be copied into our object
   });
-    console.log(offeredBooks.books);
   };
 
   function booking(bookThis){

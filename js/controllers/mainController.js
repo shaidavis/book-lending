@@ -15,8 +15,7 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
   $scope.searchBook = function(){
 
     bookService.search($scope.bookSearch)
-    // .then(function(){
-    //   console.log("hi mom")
+
    $scope.books = bookService.searchedBooks.books;
     // });
     $scope.bookSearch="";
@@ -30,8 +29,7 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
 
   $scope.clickToOpenBorrow = function ($index) {
     $rootScope.bookingIndex = $scope.allBooks[$index]._id;
-    // console.log('yoyo index be', $scope.bookingIndex)
-    ngDialog.open({ template: 'popupTmpl.html', className: 'ngdialog-theme-default'});
+    ngDialog.open({ template: 'borrowBook.html', className: 'ngdialog-theme-default'});
   }
     
 
