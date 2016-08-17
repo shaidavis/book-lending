@@ -8,7 +8,7 @@
           <input type="text" class="form-control searchfield" placeholder="Search Book by Title" ng-model="bookTitle"> 
         </div>
 
-        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-xs-10" style="top: -2px; padding-left:0px">
+        <div class="sortdrop col-lg-4 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-xs-10" style="top: -2px; padding-left:0px">
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="bookStyle" >
               <option value = "{{undefined}}">All Categories</option>
               <!-- <option ng-repeat="book in userBooks | orderBy:'style' track by $index">{{book.style}}</option> -->
@@ -16,7 +16,7 @@
           </select>
         </div>
 
-        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-1 col-xs-10" style="top: -2px; padding-left:0px">
+        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-2 col-xs-10" style="top: -2px; padding-left:0px">
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="sortList">
                 <option value = "" selected>Sort by Name</option>
                 <option value = "-dateAdded">Sort by Date Added</option>
