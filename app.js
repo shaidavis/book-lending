@@ -32,7 +32,7 @@ app.get('/books', function (req, res) {
 
 app.post('/offerbook', function (req, res, next) {
   var book = new Book(req.body);
-  console.log(req.body)
+  // console.log(req.body)
 
   book.save(function(err, book) {
     if (err) { return next(err); }

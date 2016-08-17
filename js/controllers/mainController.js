@@ -1,10 +1,10 @@
-app.controller('mainCtrl', function($scope, bookService){
+app.controller('mainCtrl', function($scope, bookService, ngDialog){
 
   //THE GETALL FUNCTION UPDATES THE BOOKS THAT WERE OFFERED BY OTHER USERS AND CAN BE BORROWED. RUNS ON LOAD.//
 
   bookService.getAll().then(function () {
   $scope.offeredBooks = bookService.offeredBooks.books;
-    console.log($scope.offeredBooks);
+    // console.log($scope.offeredBooks);
   });
 
   $scope.allBooks = bookService.offeredBooks.books;
@@ -25,6 +25,12 @@ app.controller('mainCtrl', function($scope, bookService){
   $scope.offerBook = function(title,image, author, description, pageNo,language ,index){
     bookService.offer(title,image, author, description, pageNo,language ,index);
   }
+
+
+  $scope.clickToOpen = function ($index) {
+    $scope.bookToBorrow = $scope.allBooks[$index]._id;
+    ngDialog.open({ template: 'popupTmpl.html', className: 'ngdialog-theme-default' });
+    };
 
 
   });
