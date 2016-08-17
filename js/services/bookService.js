@@ -12,7 +12,7 @@ app.factory('bookService', ['$http', function ($http) {
     searchedBooks.books = [];   //empty the search array before rendering the new search
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
-     // console.log(data)
+     console.log(data)
      for (var i=0; i < data.items.length ; i++){
       var book = {
         title:data.items[i].volumeInfo.title,
@@ -20,17 +20,17 @@ app.factory('bookService', ['$http', function ($http) {
         author: data.items[i].volumeInfo.authors[0].toString(),
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
-        language: data.items[i].volumeInfo.language
-
+        language: data.items[i].volumeInfo.language,
+        category: data.items[i].volumeInfo.categories[0]
        }
        searchedBooks.books.push(book);
       }
-
+      console.log(searchedBooks.books)
     });
   }
 
   //CREATES BOOK OBJECT TO BE SENT TO THE DATABASE (IN THE OFFERED BOOKS)//
-  function offer(title,image, author, description, pageNo,language ,index, lenderEmail){
+  function offer(title,image, author, description, pageNo,language ,index, lenderEmail, category){
     var book = {
       title:title,
       image:image,
@@ -39,7 +39,8 @@ app.factory('bookService', ['$http', function ($http) {
       pageNo: parseInt(pageNo),
       language: language,
       available: true,
-      lenderEmail: lenderEmail
+      lenderEmail: lenderEmail,
+      category: category
     }
    
     $http.post('/offerbook', book).success(function(data, status, headers, config) {

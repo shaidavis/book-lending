@@ -9,7 +9,8 @@ var bookSchema = new Schema({
   description: { type: String },
   language: {type: String},
   available: {type: Boolean},
-  lenderEmail: {type: String}
+  lenderEmail: {type: String},
+  category: {type: String}
 });
 
 var Book = mongoose.model("Book", bookSchema);

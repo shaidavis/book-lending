@@ -34,7 +34,7 @@
               <div class="right-content pull-left">
                 <div class="book-info">
                   <span class="book-category"><i class="fa fa-pencil" aria-hidden="true"></i> {{book.author}}</span> 
-                  <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> Young Adult</span>
+                  <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> {{book.category}}</span>
                   <!-- <span class="book-category"><i class="fa fa-language" aria-hidden="true"></i> English </span> -->
                   <span class="book-category"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{book.pageNo}} Pages </span>
 
@@ -53,7 +53,7 @@
               </div>
             </div>  
 
-            <button class="btn-primary btn" ng-click="offerBook(book.title, book.image, book.author, book.description, book.pageNo, book.language, $index)">
+            <button class="btn-primary btn" ng-click="offerBook(book.title, book.image, book.author, book.description, book.pageNo, book.language, $index, book.category)">
                   Offer this Book
             </button>
 
