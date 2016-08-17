@@ -44,6 +44,8 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
 
   $scope.clickToOpenBorrow = function ($index) {
     $rootScope.bookingIndex = $scope.allBooks[$index]._id;
+    $rootScope.bookingLenderEmail = $scope.allBooks[$index].lenderEmail;
+    console.log($scope.allBooks[$index].lenderEmail);
     ngDialog.open({ template: 'borrowBook.html', className: 'ngdialog-theme-default'});
   }
     
