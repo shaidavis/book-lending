@@ -3,11 +3,12 @@ var Schema = mongoose.Schema;
 
 var bookSchema = new Schema({
   title: { type: String },
-  image_url: { type: String },
+  image: { type: String },
   author: [String],
   pageNo: { type: Number },
   description: { type: String },
-  language: {type: String}
+  language: {type: String},
+  available: {type: Boolean}
 });
 
 var Book = mongoose.model("Book", bookSchema);

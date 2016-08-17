@@ -16,7 +16,8 @@
     "express": "^4.14.0",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
-    "mongoose": "^4.5.9"
+    "mongoose": "^4.5.9",
+    "ng-dialog": "^0.6.2"
   },
   "devDependencies": {},
   "repository": {

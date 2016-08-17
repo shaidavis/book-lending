@@ -11,8 +11,8 @@ app.factory('bookService', ['$http', function ($http) {
   function search(name){
     searchedBooks.books = [];   //empty the search array before rendering the new search
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
-
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
+     // console.log(data)
      for (var i=0; i < data.items.length ; i++){
       var book = {
         title:data.items[i].volumeInfo.title,
@@ -20,11 +20,11 @@ app.factory('bookService', ['$http', function ($http) {
         author: data.items[i].volumeInfo.authors,
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
-        language: data.items[i].volumeInfo.language,
+        language: data.items[i].volumeInfo.language
+
        }
        searchedBooks.books.push(book);
       }
-     // console.log(searchedBooks)
     });
   }
 
@@ -36,13 +36,13 @@ app.factory('bookService', ['$http', function ($http) {
       author:author,
       description:description,
       pageNo: parseInt(pageNo),
-      language: language
-
+      language: language,
+      available: true
     }
    
     $http.post('/offerbook', book);
 
-    // offeredBooks.getAll();    
+    getAll();    
   }
 
   function getAll() {
@@ -54,9 +54,18 @@ app.factory('bookService', ['$http', function ($http) {
     // 'beers' under 'beerService'
     angular.copy(data, offeredBooks.books);        //this tells the data to be copied into our object
   });
-    console.log(offeredBooks.books);
   };
 
-  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll}
+  function booking(bookThis){
+    //   $http.post('/bookit', {id: bookThis}).success(function(data, status, headers, config) {
+    //   getAll();
+    // });
+    console.log(bookThis);
+    }
+   
+    // $http.post('/offerbook', book);
+  
+
+  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll, booking:booking}
 
 }])

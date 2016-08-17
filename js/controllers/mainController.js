@@ -1,10 +1,11 @@
-app.controller('mainCtrl', function($scope, bookService){
+app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
 
   //THE GETALL FUNCTION UPDATES THE BOOKS THAT WERE OFFERED BY OTHER USERS AND CAN BE BORROWED. RUNS ON LOAD.//
+  // $scope.bookingIndex = undefined;
 
   bookService.getAll().then(function () {
   $scope.offeredBooks = bookService.offeredBooks.books;
-    console.log($scope.offeredBooks);
+    // console.log($scope.offeredBooks);
   });
 
   $scope.allBooks = bookService.offeredBooks.books;
@@ -14,8 +15,7 @@ app.controller('mainCtrl', function($scope, bookService){
   $scope.searchBook = function(){
 
     bookService.search($scope.bookSearch)
-    // .then(function(){
-    //   console.log("hi mom")
+
    $scope.books = bookService.searchedBooks.books;
     // });
     $scope.bookSearch="";
@@ -27,4 +27,14 @@ app.controller('mainCtrl', function($scope, bookService){
   }
 
 
+  $scope.clickToOpenBorrow = function ($index) {
+    $rootScope.bookingIndex = $scope.allBooks[$index]._id;
+    ngDialog.open({ template: 'borrowBook.html', className: 'ngdialog-theme-default'});
+  }
+    
+
+  $scope.bookIt = function(){
+    bookService.booking($rootScope.bookingIndex);
+    }
+  
   });

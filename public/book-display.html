@@ -71,21 +71,21 @@
         <!-- </div> --><!--  /book-container -->
  
 
-       <div class="bookContainerWide col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6">
-        <div class="book-inner-wide">
+       <div class="bookContainerWide col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6" ng-controller = "mainCtrl">
+        <div class="book-inner-wide" ng-repeat = "book in allBooks track by $index">
 
             <div class = "top-content">
-            <span class="book-name">Harry Potter</span><span class = "book-author"> by JK Rowling</span> 
+            <span class="book-name">{{book.title}}</span><span class = "book-author"> {{book.author}}</span> 
             </div>
             <div class="book-details">
               <div class="left-content pull-left">
-              <img class="book-image-wide cover col-centered" src="https://books.google.co.il/books/content?id=2sSMCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72cEaZbvu1rufdt87qHBjk9gspGAsuSSFP1ucdwBVcGn_rYQX3iwXDFuN34OJNBYyc7FpqCybWHbwKyG1lZGRYb9aYdRjyrARTG-_cZNtDqzaSufq8YSIdWAgHdSDRcgDlfn5-P">
+              <img ng-src={{book.image}}>
               </div>
               <div class="right-content pull-left">
                 <div class="book-info">
-                  <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> Young Adult</span>
-                  <span class="book-category"><i class="fa fa-language" aria-hidden="true"></i> English </span>
-                  <span class="book-category"><i class="fa fa-file-text-o" aria-hidden="true"></i> 306 Pages </span>
+                  <!-- <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> Young Adult</span> -->
+                  <span class="book-category"><i class="fa fa-language" aria-hidden="true"></i> {{book.language}} </span>
+                  <span class="book-category"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{book.pageNo}} </span>
 
   <!--                 <h4 class=""></h4>
                   <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="book-description">
                   <p class="">
-                  Based on an original new story by J.K. Rowling, Jack Thorne and John Tiffany, a new play by Jack Thorne, Harry Potter and the Cursed Child is the eighth story in the Harry Potter series and the first official Harry Potter story to be presented on stage. The play received its world premiere in London's West End on 30th July 2016.
+                  {{book.description}}
                   </p>
                 </div>
                 <div class="actions clearfix">
@@ -113,9 +113,9 @@
                   </div> /user-rating-container
                 </form>
     -->
-                <button class="btn btn-primary">
-                  Book it!
-                </button>
+                <button class="btn btn-primary" ng-click="clickToOpenBorrow($index)">Book Now!</button>
+
+
               </div>
             </div>  
 
