@@ -32,7 +32,7 @@
 
 <div class="row row-centered">
   <div class="book-display">  
-    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle} | filter: {added: dateAdded} | filter: {author:author}| orderBy: sortList || 'title' track by $index " ng-class = "{notavailable: !book.available}">
+    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle}| orderBy: sortList || 'title' track by $index " ng-show = "book.available">
           
       <div ng-model="book.offer"> 
 
@@ -79,4 +79,6 @@
      </div>
     </div>
   </div>
+
 </div>
+

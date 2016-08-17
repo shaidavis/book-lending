@@ -18,7 +18,7 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
   //SEARCHBOOK FUNCTION SEARCHES THROUGH GOOGLE API DATABASE FOR THE BOOK THE USER WANTS TO OFFER (BORROW OUT)//
   $scope.searchBook = function(){
 
-    bookService.search($scope.bookSearch)
+  bookService.search($scope.bookSearch)
 
    $scope.books = bookService.searchedBooks.books;
     // });
@@ -41,7 +41,8 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
   //OFFERING A NEW BOOK - CALL THE BOOKSERVICE WITH THE SEARCHED BOOK'S PROPERTIES AND LENDER'S EMAIL//
   $scope.offerIt = function(){
   $scope.submitted=true;
-  bookService.offer($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.ageNo,$rootScope.anguage ,$rootScope.index, $scope.lenderEmail);
+  bookService.offer($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.pageNo,$rootScope.language ,$rootScope.offerIndex, $scope.lenderEmail);
+  console.log($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.pageNo,$rootScope.language ,$rootScope.offerIndex, $scope.lenderEmail)
   }
   
 
