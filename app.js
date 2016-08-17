@@ -41,5 +41,13 @@ app.post('/offerbook', function (req, res, next) {
   });
 });
 
+
+app.post('/booking', function (req, res, next) {
+  Book.findByIdAndUpdate(req.body.id, { available: false }, function(err, user) {
+    if (err) throw err;
+    res.end();
+  })
+  
+});
 app.listen(8000);
 

@@ -29,7 +29,7 @@ app.factory('bookService', ['$http', function ($http) {
   }
 
   //CREATES BOOK OBJECT TO BE SENT TO THE DATABASE (IN THE OFFERED BOOKS)//
-  function offer(title,image, author, description, pageNo,language ,index){
+  function offer(title,image, author, description, pageNo,language ,index, lenderEmail){
     var book = {
       title:title,
       image:image,
@@ -37,35 +37,41 @@ app.factory('bookService', ['$http', function ($http) {
       description:description,
       pageNo: parseInt(pageNo),
       language: language,
-      available: true
+      available: true,
+      lenderEmail: lenderEmail
     }
    
-    $http.post('/offerbook', book);
-
-    getAll();    
+    $http.post('/offerbook', book).success(function(data, status, headers, config) {
+      getAll();
+    });
+  
   }
 
   function getAll() {
     return $http.get('/books').success(function (data) {
-       console.log("data from server is:",data);
-      // var id = ObjectId();
-      // console.log(id)
-    // this copies the response posts to the client side
-    // 'beers' under 'beerService'
-    angular.copy(data, offeredBooks.books);        //this tells the data to be copied into our object
+       // console.log("data from server is:",data);
+    angular.copy(data, offeredBooks.books);       
   });
   };
 
+
+  //UPON HITTING SUBMIT IN THE BORROW BOOK POPUP MAKE THE AVAILABILITY FALSE//s
   function booking(bookThis){
-    //   $http.post('/bookit', {id: bookThis}).success(function(data, status, headers, config) {
-    //   getAll();
-    // });
-    console.log(bookThis);
-    }
+    $http.post('/booking',{id: bookThis}).success(function(data, status, headers, config) {
+      getAll();
+    });
+
+
+  }
    
-    // $http.post('/offerbook', book);
+
   
 
-  return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll, booking:booking}
+  return {searchedBooks:searchedBooks, 
+          search:search, 
+          offer:offer, 
+          offeredBooks:offeredBooks, 
+          getAll:getAll, 
+          booking:booking}
 
 }])

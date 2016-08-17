@@ -8,7 +8,8 @@ var bookSchema = new Schema({
   pageNo: { type: Number },
   description: { type: String },
   language: {type: String},
-  available: {type: Boolean}
+  available: {type: Boolean},
+  lenderEmail: {type: String}
 });
 
 var Book = mongoose.model("Book", bookSchema);
