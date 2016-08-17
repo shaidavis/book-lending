@@ -23,7 +23,23 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + "/index.html");
 })
 
+app.get('/books', function (req, res) {
+  Book.find(function (error, books) {
+    res.send(books);
+  });
+});
 
+
+app.post('/offerbook', function (req, res, next) {
+  var book = new Book(req.body);
+  console.log(req.body)
+
+  book.save(function(err, book) {
+    if (err) { return next(err); }
+
+    res.json(book);
+  });
+});
 
 app.listen(8000);
 
