@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body ng-app="book"> 
+  <div class = "booking" ng-controller = "mainCtrl">
+    <h3 class="popup-h3">Please submit your email, so the lender can contact you.</h3>
+    <form ng-submit = "offerIt()">
+      <input class="form-control" input type="text" ng-model = "lenderEmail" required placeholder="Your Email Address" style="margin-bottom: 5px">
+      <button class="btn-primary" style="margin-top: 10px">Submit</button>
+    </form>
+    <div ng-show = "submitted">Submitted Successfully!</div>
+  </div> 
+</body>
+</html>

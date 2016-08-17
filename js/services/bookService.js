@@ -29,7 +29,7 @@ app.factory('bookService', ['$http', function ($http) {
   }
 
   //CREATES BOOK OBJECT TO BE SENT TO THE DATABASE (IN THE OFFERED BOOKS)//
-  function offer(title,image, author, description, pageNo,language ,index){
+  function offer(title,image, author, description, pageNo,language ,index, lenderEmail){
     var book = {
       title:title,
       image:image,
@@ -37,7 +37,8 @@ app.factory('bookService', ['$http', function ($http) {
       description:description,
       pageNo: parseInt(pageNo),
       language: language,
-      available: true
+      available: true,
+      lenderEmail: lenderEmail
     }
    
     $http.post('/offerbook', book).success(function(data, status, headers, config) {
