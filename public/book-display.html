@@ -5,7 +5,7 @@
     <div class="input-group">
       <div class="input-group-btn">
         <div class="searchbox col-lg-5 col-lg-offset-0 col-md-5 col-sm-5 col-xs-10 col-xs-offset-0">
-          <input type="text" class="form-control searchfield" placeholder="Search Book by Title" ng-model="bookName">
+          <input type="text" class="form-control searchfield" placeholder="Search Book by Title" ng-model="bookTitle"> 
         </div>
 
         <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-xs-10" style="top: -2px; padding-left:0px">
@@ -19,7 +19,7 @@
         <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-1 col-xs-10" style="top: -2px; padding-left:0px">
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="sortList">
                 <option value = "" selected>Sort by Name</option>
-                <option value = "-rating">Sort by Date Added</option>
+                <option value = "-dateAdded">Sort by Date Added</option>
           </select>
 
         </div>
@@ -32,7 +32,8 @@
 
 <div class="row row-centered">
   <div class="book-display">  
-    <div class = "show-search-books" ng-repeat = "book in allBooks track by $index" ng-class = "{notavailable: !book.available}">
+    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle} | filter: {added: dateAdded} | filter: {author:author}| orderBy: sortList || 'title' track by $index " ng-class = "{notavailable: !book.available}">
+          
       <div ng-model="book.offer"> 
 
 
@@ -40,7 +41,7 @@
           <div class="book-inner-wide">
 
             <div class = "top-content">
-            <span class="book-name">{{book.title}}</span><span class = "book-author">  {{book.author}}</span> 
+            <span class="book-name">{{book.title}}</span>
             </div>
             <div class="book-details">
               <div class="left-content pull-left">
@@ -48,6 +49,7 @@
               </div>
               <div class="right-content pull-left">
                 <div class="book-info">
+                  <span class="book-category"><i class="fa fa-pencil" aria-hidden="true"></i> {{book.author}}</span> 
                   <span class="book-category"><i class="fa fa-bookmark" aria-hidden="true"></i> Young Adult</span>
                   <!-- <span class="book-category"><i class="fa fa-language" aria-hidden="true"></i> English </span> -->
                   <span class="book-category"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{book.pageNo}} Pages </span>
