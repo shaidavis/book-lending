@@ -40,30 +40,30 @@ app.factory('bookService', ['$http', function ($http) {
       available: true
     }
    
-    $http.post('/offerbook', book);
-
-    getAll();    
+    $http.post('/offerbook', book).success(function(data, status, headers, config) {
+      getAll();
+    });
+  
   }
 
   function getAll() {
     return $http.get('/books').success(function (data) {
-       console.log("data from server is:",data);
-      // var id = ObjectId();
-      // console.log(id)
-    // this copies the response posts to the client side
-    // 'beers' under 'beerService'
-    angular.copy(data, offeredBooks.books);        //this tells the data to be copied into our object
+       // console.log("data from server is:",data);
+    angular.copy(data, offeredBooks.books);       
   });
   };
 
+
+  //UPON HITTING SUBMIT IN THE BORROW BOOK POPUP MAKE THE AVAILABILITY FALSE//s
   function booking(bookThis){
-    //   $http.post('/bookit', {id: bookThis}).success(function(data, status, headers, config) {
-    //   getAll();
-    // });
-    console.log(bookThis);
-    }
+    $http.post('/booking',{id: bookThis}).success(function(data, status, headers, config) {
+      getAll();
+    });
+
+
+  }
    
-    // $http.post('/offerbook', book);
+
   
 
   return {searchedBooks:searchedBooks, search:search, offer:offer, offeredBooks:offeredBooks, getAll:getAll, booking:booking}

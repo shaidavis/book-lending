@@ -16,6 +16,11 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
 );
 }
 
+.notavailable{
+  background-color:red !important;
+}
+
+
 .navbar-inverse {
   color: white;
   font-family: 'Unica One', cursive;
