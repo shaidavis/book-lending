@@ -183,9 +183,10 @@ h3 {
 }
 
 .book-info {
-border-bottom: 1px dotted #7a7c73;
-text-align: center;
-margin-bottom: 6px;
+  border-bottom: 1px dotted #7a7c73;
+  text-align: center;
+  margin-bottom: 6px;
+  height: 42px;
 }
 
 
@@ -288,7 +289,7 @@ margin-bottom: 6px;
   }
 
   .book-info {
-    width: 110%;
+    /*width: 110%;*/
   }
 }
 
