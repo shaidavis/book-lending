@@ -48,9 +48,11 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
   
 
   //OPENS THE POPUP WINDOW WHEN CLICK BORROW A BOOK//
-  $scope.clickToOpenBorrow = function ($index) {
-    $rootScope.bookingIndex = $scope.allBooks[$index]._id;
-    $rootScope.bookingLenderEmail = $scope.allBooks[$index].lenderEmail;
+  $scope.clickToOpenBorrow = function (book) {
+    // console.log(book._id)
+    // $rootScope.bookingIndex = $scope.allBooks[$index]._id;
+    // $rootScope.bookingLenderEmail = $scope.allBooks[$index].lenderEmail;
+    $rootScope.bookingIndex = book._id;
     ngDialog.open({ template: 'borrowBook.html', className: 'ngdialog-theme-default'});
   }
     
