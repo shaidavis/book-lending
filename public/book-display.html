@@ -9,10 +9,10 @@
         </div>
 
         <div class="sortdrop col-lg-4 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-xs-10" style="top: -2px; padding-left:0px">
-          <select class="dropdown-menu dropdown-menu-right form-control" ng-model="bookStyle" >
+          <select class="dropdown-menu dropdown-menu-right form-control" ng-model="bookCategory" >
               <option value = "{{undefined}}">All Categories</option>
               <!-- <option ng-repeat="book in userBooks | orderBy:'style' track by $index">{{book.style}}</option> -->
-              <option ng-repeat="bookcategory in allBookCategories">{{bookcategory}}</option>
+              <option ng-repeat="book in allBooks | unique: 'category'">{{book.category}}</option>
           </select>
         </div>
 
@@ -32,7 +32,7 @@
 
 <div class="row row-centered">
   <div class="book-display">  
-    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle}| orderBy: sortList || 'title' track by $index " ng-show = "book.available">
+    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle}| filter: {category:bookCategory}| orderBy: sortList || 'title' track by $index " ng-show = "book.available">
           
       <div ng-model="book.offer"> 
 
