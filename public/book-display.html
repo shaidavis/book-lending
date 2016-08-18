@@ -12,7 +12,7 @@
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="bookCategory" >
               <option value = "{{undefined}}">All Categories</option>
               <!-- <option ng-repeat="book in userBooks | orderBy:'style' track by $index">{{book.style}}</option> -->
-              <option ng-repeat="book in allBooks">{{book.category}}</option>
+              <option ng-repeat="book in allBooks | unique: 'category'">{{book.category}}</option>
           </select>
         </div>
 
