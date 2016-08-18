@@ -28,9 +28,13 @@ app.factory('bookService', ['$http', function ($http) {
      // }
        if (typeof book.author !== "undefined"){
         book.author = book.author[0].toString();
+       } else {
+        book.author = "Unknown"
        }
        if (typeof book.category !== "undefined"){
         book.category = book.category[0].toString();
+       } else {
+        book.category = "Uncategorized"
        }
        searchedBooks.books.push(book);
        // console.log(book)
