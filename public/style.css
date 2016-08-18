@@ -40,6 +40,7 @@ repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px,
 .search-bar {
   
   color:#22313F;
+  margin-bottom: 40px;
 }
 
 .search-button {
