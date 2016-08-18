@@ -24,13 +24,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: 'offer-book.html'
   })
-  .state('offer', {
-    url: '/offer',
+  .state('give', {
+    url: '/give',
     templateUrl: 'offer-book.html',
     controller: 'mainCtrl'
   })
-  .state('borrow', {
-    url: '/borrow',
+  .state('get', {
+    url: '/get',
     templateUrl: 'book-display.html',
     controller: 'mainCtrl'
   })
