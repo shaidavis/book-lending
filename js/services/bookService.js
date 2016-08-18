@@ -12,20 +12,30 @@ app.factory('bookService', ['$http', function ($http) {
     searchedBooks.books = [];   //empty the search array before rendering the new search
     $http.get('https://www.googleapis.com/books/v1/volumes?q=' + name).success(function (data) {
      //LOOP THROUGH THE DATA RETURNED AND CREATE BOOK OBJECT TO PUSH INTO SEARCHED BOOKS ARRAY
-     console.log(data)
+     // console.log(data)
      for (var i=0; i < data.items.length ; i++){
       var book = {
         title:data.items[i].volumeInfo.title,
         image: data.items[i].volumeInfo.imageLinks.thumbnail,
-        author: data.items[i].volumeInfo.authors[0].toString(),
+        author: data.items[i].volumeInfo.authors,
         pageNo: data.items[i].volumeInfo.pageCount,
         description: data.items[i].volumeInfo.description,
         language: data.items[i].volumeInfo.language,
-        category: data.items[i].volumeInfo.categories[0]
+        category: data.items[i].volumeInfo.categories
+       }
+     //   if (typeOf(book.author) !== undefined){
+     //   book.author.toString();
+     // }
+       if (typeof book.author !== "undefined"){
+        book.author = book.author[0].toString();
+       }
+       if (typeof book.category !== "undefined"){
+        book.category = book.category[0].toString();
        }
        searchedBooks.books.push(book);
+       // console.log(book)
       }
-      console.log(searchedBooks.books)
+      // console.log(searchedBooks.books)
     });
   }
 
@@ -34,13 +44,13 @@ app.factory('bookService', ['$http', function ($http) {
     var book = {
       title:title,
       image:image,
-      author:author,
+      author:author.toString(),
       description:description,
       pageNo: parseInt(pageNo),
       language: language,
       available: true,
       lenderEmail: lenderEmail,
-      category: category
+      category: category.toString()
     }
    
     $http.post('/offerbook', book).success(function(data, status, headers, config) {
