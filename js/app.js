@@ -17,6 +17,8 @@ app.filter('unique', function() {
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/offer');
+
   $stateProvider
   .state('home', {
     url: '/home',
