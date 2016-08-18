@@ -26,7 +26,7 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
   }
 
   //OFFERBOOK FUNCTION ADDS THE BOOK FROM THE GOOGLE API SEARCH INTO THE OFFERED BOOKS DATABASE SO USERS CAN BORROW THEM//
-  $scope.offerBook = function(title,image, author, description, pageNo,language ,index){
+  $scope.offerBook = function(title,image, author, description, pageNo,language ,index, category){
 
     $rootScope.title = title;
     $rootScope.image = image;
@@ -35,13 +35,14 @@ app.controller('mainCtrl', function($scope, $rootScope, bookService, ngDialog){
     $rootScope.pageNo = pageNo;
     $rootScope.language = language;
     $rootScope.offerIndex = index;
+    $rootScope.category = category;
      ngDialog.open({ template: 'offerBookSuccess.html', className: 'ngdialog-theme-default'});
   }
 
   //OFFERING A NEW BOOK - CALL THE BOOKSERVICE WITH THE SEARCHED BOOK'S PROPERTIES AND LENDER'S EMAIL//
   $scope.offerIt = function(){
   $scope.submitted=true;
-  bookService.offer($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.pageNo,$rootScope.language ,$rootScope.offerIndex, $scope.lenderEmail);
+  bookService.offer($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.pageNo,$rootScope.language ,$rootScope.offerIndex, $scope.lenderEmail, $rootScope.category);
   console.log($rootScope.title,$rootScope.image, $rootScope.author, $rootScope.description, $rootScope.pageNo,$rootScope.language ,$rootScope.offerIndex, $scope.lenderEmail)
   }
   
