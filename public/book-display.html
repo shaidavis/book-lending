@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="search-bar col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+  <div class="search-bar col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-1 col-xs-12 col-xs-offset-1">
   <br/>
       
     <div class="input-group">
       <div class="input-group-btn">
-        <div class="searchbox col-lg-5 col-lg-offset-0 col-md-5 col-sm-5 col-xs-10 col-xs-offset-0">
+        <div class="searchbox col-lg-5 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-5 col-xs-10 col-xs-offset-0">
           <input type="text" class="form-control searchfield" placeholder="Search Book by Title" ng-model="bookTitle"> 
         </div>
 
@@ -12,14 +12,14 @@
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="bookCategory" >
               <option value = "{{undefined}}">All Categories</option>
               <!-- <option ng-repeat="book in userBooks | orderBy:'style' track by $index">{{book.style}}</option> -->
-              <option ng-repeat="book in allBooks | unique: 'category'">{{book.category}}</option>
+              <option ng-repeat="book in allBooks">{{book.category}}</option>
           </select>
         </div>
 
-        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-2 col-xs-10" style="top: -2px; padding-left:0px">
+        <div class="sortdrop col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-2 col-sm-offset-1 col-xs-10" style="top: -2px; padding-left:0px">
           <select class="dropdown-menu dropdown-menu-right form-control" ng-model="sortList">
                 <option value = "" selected>Sort by Name</option>
-                <option value = "-dateAdded">Sort by Date Added</option>
+                <option value = "pageNo">Sort by Page Count</option>
           </select>
 
         </div>
@@ -32,12 +32,12 @@
 
 <div class="row row-centered">
   <div class="book-display">  
-    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle}| filter: {category:bookCategory}| orderBy: sortList || 'title' track by $index " ng-show = "book.available">
+    <div class = "show-search-books" ng-repeat = "book in allBooks | filter: {title:bookTitle}| filter: {category:bookCategory} | orderBy: sortList || 'title' track by $index " ng-show = "book.available">
           
       <div ng-model="book.offer"> 
 
 
-        <div class="bookContainerWide col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6">
+        <div class="bookContainerWide col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6">
           <div class="book-inner-wide">
 
             <div class = "top-content">
@@ -80,5 +80,3 @@
     </div>
   </div>
 </div>
-
-  
