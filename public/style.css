@@ -339,3 +339,7 @@ margin-bottom: 6px;
   font-family: 'Dosis', sans-serif;
   font-size: 18px;
 }
+
+.ing {
+  cursor: pointer;
+}
